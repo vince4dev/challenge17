@@ -1,52 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Contact form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
 
-  Contact Us
+    <!-- Javascript -->
+    <script src="./assets/js/main.js" defer></script>
 
-  First Name
-  This field is required
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Contact Us</h1>
+        <form novalidate>
+          <div action="contactForm" class="form-wrapper">
+            <!-- Name -->
+            <div class="name-wrapper">
+              <!-- First Name -->
+              <div class="form-group">
+                <label for="firstname"
+                  >First Name<span class="star-label">*</span></label
+                >
+                <input
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  aria-describedby="firsNameError"
+                  required
+                />
+                <span
+                  class="error-message"
+                  id="firsNameError"
+                  aria-live="polite"
+                  >This field is required</span
+                >
+              </div>
 
-  Last Name
-  This field is required
+              <!-- Last Name -->
+              <div class="form-group">
+                <label for="lastname"
+                  >Last Name<span class="star-label">*</span></label
+                >
+                <input
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  aria-describedby="lastNameError"
+                  required
+                />
+                <span
+                  class="error-message"
+                  id="lastNameError"
+                  aria-live="polite"
+                  >This field is required</span
+                >
+              </div>
+            </div>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email"
+                >Email Address<span class="star-label">*</span></label
+              >
+              <input
+                type="email"
+                name="email"
+                id="email"
+                aria-describedby="emailError"
+                required
+              />
+              <span class="error-message" id="emailError" aria-live="polite"
+                >Please enter a valid email address</span
+              >
+            </div>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+            <!-- Query Type -->
+            <fieldset class="form-group">
+              <legend>Query Type<span class="star-label">*</span></legend>
+              <div class="radio-container">
+                <label class="radio-custom">
+                  <input
+                    type="radio"
+                    class="radio-input"
+                    name="queryType"
+                    value="general"
+                    aria-describedby="queryError"
+                    required
+                  />
+                  <span class="radio-label"></span>
+                  General Enquiry
+                </label>
+                <label class="radio-custom">
+                  <input
+                    type="radio"
+                    class="radio-input"
+                    name="queryType"
+                    value="support"
+                    aria-describedby="queryError"
+                    required
+                  />
+                  <span class="radio-label"></span>
+                  Support Request
+                </label>
+              </div>
+              <span class="error-message" id="queryError" aria-live="polite"
+                >Please select a query type</span
+              >
+            </fieldset>
 
-  Message
-  This field is required
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message"
+                >Message<span class="star-label">*</span></label
+              >
+              <textarea
+                name="message"
+                id="message"
+                rows="8"
+                required
+                aria-describedby="messageError"
+              ></textarea>
+              <span class="error-message" id="messageError" aria-live="polite"
+                >This field is required</span
+              >
+            </div>
+          </div>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+          <!-- Consent Checkbox -->
+          <fieldset class="form-group">
+            <div class="checkbox-group">
+              <label class="checkbox-custom">
+                <input
+                  type="checkbox"
+                  class="checkbox-input"
+                  name="consent"
+                  id="consent"
+                  required
+                  aria-describedby="consentError"
+                />
+                <span class="checkbox-label"></span>
+                <span
+                  >I consent to being contacted by the team<span
+                    class="star-label"
+                    >*</span
+                  ></span
+                >
+              </label>
+              <span class="error-message" id="consentError" aria-live="polite"
+                >To submit this form, please consent to being contacted</span
+              >
+            </div>
+          </fieldset>
 
-  Submit
+          <!-- SUBMIT -->
+          <button id="submit" class="submit">Submit</button>
+        </form>
+      </div>
+    </main>
 
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+    <!-- Toast Message -->
+    <div id="toast" class="toast hidden">
+      <div class="toast-title">
+        <img src="./assets/images/icon-success-check.svg" alt="" />
+        <p>Messsage Sent!</p>
+      </div>
+      <p class="toast-message">
+        Thanks for completing the form. We'll be in touch soon!
+      </p>
+    </div>
+  </body>
 </html>
