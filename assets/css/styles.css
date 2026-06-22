@@ -24,7 +24,6 @@
 :root {
   /*  colors */
   --clr-white: hsl(0, 0%, 100%);
-
   --clr-grey-900: hsl(187, 24%, 22%);
   --clr-grey-500: hsl(186, 15%, 59%);
 
@@ -43,7 +42,7 @@
   --fs-32: 2rem;
 
   /* Line height */
-  --lh-150: 150%;
+  --lh-150: 1.5;
 
   /* font weight */
   --fw-bold: 700;
@@ -59,20 +58,6 @@
 }
 
 * {
-  margin: 0;
-}
-
-h1,
-h2 {
-  padding: 0;
-}
-
-button {
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
   margin: 0;
 }
 
@@ -97,14 +82,17 @@ select {
 /* *========================================
       * BASE *
 *======================================== */
+html,
 body {
-  padding: 2rem;
-  background-color: var(--clr-green-200);
   font-family: var(--ff-base);
   font-size: var(--fs-16);
   line-height: var(--lh-150);
   font-weight: var(--fw-regular);
+}
 
+body {
+  padding: 2rem;
+  background-color: var(--clr-green-200);
   display: grid;
   place-content: center;
   min-height: 100vh;
@@ -124,27 +112,30 @@ body {
   display: grid;
   gap: 2rem;
 }
+
+/* FORM ---------- */
 form {
   display: grid;
   gap: 2.5rem;
 }
+
 .form-wrapper {
   display: grid;
   gap: 1.5rem;
 }
+
 .form-group {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 0.5rem;
 }
 
-/* NAME */
+/* FIRST NAME - LAST NAME ---------- */
 .name-wrapper {
   display: grid;
   gap: 1.5rem;
 }
 
-/* QUERY TYPE ---------- */
+/* RADIO QUERY TYPE ---------- */
 fieldset {
   border: none;
   padding: 0;
@@ -239,7 +230,7 @@ textarea:focus-visible,
   border: 1px solid var(--clr-green-600);
 }
 
-/* Consent Checkbox  */
+/* CHECKBOX CONSENT  ---------- */
 .checkbox-group {
   display: grid;
   gap: 0.5rem;
@@ -289,11 +280,12 @@ textarea:focus-visible,
   transition: all 0.2s ease;
 }
 
+/* TEXTAREA MESSAGE  ---------- */
 textarea {
   height: calc(1.75rem * 8);
 }
 
-/* Button  Submit */
+/* BUTTON SUBMIT -------------- */
 .submit {
   padding: 1rem 2.5rem;
   background-color: var(--clr-green-600);
@@ -367,9 +359,9 @@ fieldset.invalid .error-message,
   transition: opacity 0.5s ease;
 }
 
-/* *========================================
+/* *================================================================
       * MEDIA *
-*======================================== */
+*================================================================ */
 /* TABLET ------------------------------- */
 @media (min-width: 768px) {
   .container {
