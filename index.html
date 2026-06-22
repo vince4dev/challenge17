@@ -25,7 +25,7 @@
       <div class="container">
         <h1>Contact Us</h1>
         <form novalidate>
-          <div action="contactForm" class="form-wrapper">
+          <div class="form-wrapper">
             <!-- Name -->
             <div class="name-wrapper">
               <!-- First Name -->
@@ -37,12 +37,12 @@
                   type="text"
                   name="firstname"
                   id="firstname"
-                  aria-describedby="firsNameError"
+                  aria-describedby="firstNameError"
                   required
                 />
                 <span
                   class="error-message"
-                  id="firsNameError"
+                  id="firstNameError"
                   aria-live="polite"
                   >This field is required</span
                 >
@@ -165,13 +165,13 @@
           </fieldset>
 
           <!-- SUBMIT -->
-          <button id="submit" class="submit">Submit</button>
+          <button type="submit" id="submit" class="submit">Submit</button>
         </form>
       </div>
     </main>
 
     <!-- Toast Message -->
-    <div id="toast" class="toast hidden">
+    <div id="toast" class="toast hidden" role="alert" aria-live="polite">
       <div class="toast-title">
         <img src="./assets/images/icon-success-check.svg" alt="" />
         <p>Messsage Sent!</p>

@@ -23,7 +23,7 @@ const UI = (() => {
   );
 
   // Verify that all elements exist
-  if (!submitBtn || !consentChk || !toast || !allInputs || !textInputs) {
+  if (!submitBtn || !consentChk || !toastEl || !allInputs || !textInputs) {
     throw new Error("Required DOM elements not found. Check your HTML IDs.");
   }
 
