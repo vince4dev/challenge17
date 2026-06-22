@@ -23,7 +23,13 @@ const UI = (() => {
   );
 
   // Verify that all elements exist
-  if (!submitBtn || !consentChk || !toastEl || !allInputs || !textInputs) {
+  if (
+    !submitBtn ||
+    !consentChk ||
+    !toastEl ||
+    !allInputs.length === 0 ||
+    !textInputs.length === 0
+  ) {
     throw new Error("Required DOM elements not found. Check your HTML IDs.");
   }
 
@@ -154,14 +160,21 @@ const Validator = (() => {
 //  TOAST - Show / hide
 // ==================================================================
 const Toast = (() => {
+  let hideTimer;
   const { toastEl } = UI;
 
   const show = (msg, duration = 5000) => {
+    // If a timer is already active, cancel it.
+    if (hideTimer) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
+
     if (msg) toastEl.querySelector(".toast-message").textContent = msg;
     toastEl.classList.remove("hidden");
     toastEl.classList.add("show");
 
-    setTimeout(() => {
+    hideTimer = setTimeout(() => {
       toastEl.classList.remove("show");
       toastEl.classList.add("hidden");
     }, duration);
